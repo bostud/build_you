@@ -57,7 +57,7 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Реєстрація
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -69,7 +69,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="firstName"
-                label="First Name"
+                label="Ім`я"
                 autoFocus
               />
             </Grid>
@@ -79,7 +79,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="lastName"
-                label="Last Name"
+                label="Прізвище"
                 name="lastName"
                 autoComplete="lname"
               />
@@ -90,7 +90,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Email"
                 name="email"
                 autoComplete="email"
               />
@@ -101,7 +101,7 @@ export default function SignUp() {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Пароль"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -110,7 +110,7 @@ export default function SignUp() {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                label="Хочу отримувати новини, листи про покращення та зраду"
               />
             </Grid>
           </Grid>
@@ -121,12 +121,12 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Зареєструватись
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
+              <Link href="/login" variant="body2">
+                Уже маєте аккаунт? Вхід
               </Link>
             </Grid>
           </Grid>

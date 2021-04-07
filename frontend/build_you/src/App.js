@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import {
     Route,
     Switch,
-    Redirect,
     withRouter
 } from 'react-router-dom';
 
@@ -23,8 +22,7 @@ class App extends Component {
                 <Switch>
                     <Route exact history={history} path='/login' component={SignIn} />
                     <Route exact history={history} path='/register' component={SignUp} />
-                    <Route exact history={history} path='/' component={Home} />
-                    <Redirect from='/home' to='/' />
+                    <Route history={history} path='/' component={Home} />
                 </Switch>
             </div>
         );
