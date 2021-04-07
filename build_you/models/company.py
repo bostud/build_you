@@ -20,3 +20,4 @@ class Company(BaseModel, Base):
     status = Column(Enum(Status), default=Status.ACTIVE)
 
     owner = relationship('User', back_populates='companies')
+    company_objects = relationship('BuildObject', back_populates='company')

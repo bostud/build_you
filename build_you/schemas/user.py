@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 
 
 class UserBase(BaseModel):
@@ -9,6 +9,10 @@ class UserBase(BaseModel):
     email: str
     phone: Optional[str]
     settings: Optional[dict]
+
+    @validator('email')
+    def validate_email(cls, v):
+        pass
 
 
 class UserCreate(UserBase):
@@ -21,4 +25,3 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
-
