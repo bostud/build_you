@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+
+import {
+    Route,
+    Switch,
+    withRouter
+} from 'react-router-dom';
+
+import Home from './components/Home/Home';
+import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
+
+import './index.css';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        const { history } = this.props
+
+        return (
+            <div className='App'>
+                <Switch>
+                    <Route exact history={history} path='/login' component={SignIn} />
+                    <Route exact history={history} path='/register' component={SignUp} />
+                    <Route history={history} path='/' component={Home} />
+                </Switch>
+            </div>
+        );
+    }
 }
 
-export default App;
+export default withRouter(App)
