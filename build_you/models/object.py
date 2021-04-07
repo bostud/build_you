@@ -21,4 +21,4 @@ class BuildObject(BaseModel, Base):
     status = Column(Enum(Status), default=Status.NEW)
     company_id = Column(Integer, ForeignKey('company.id'))
     settings = Column(JSON, default={}, nullable=True)
-
+    contact = Column(Text)

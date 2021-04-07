@@ -23,3 +23,5 @@ class User(BaseModel, Base):
     password = Column(String(length=255), index=True)
     api_token = Column(String(length=256), default=None, nullable=True)
 
+    companies = relationship('Company', back_populates='owner')
+

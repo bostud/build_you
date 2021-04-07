@@ -9,6 +9,7 @@ uvicorn = "*"
 sqlalchemy = "*"
 pytz = "*"
 sqlalchemy-utils = "*"
+alembic = "*"
 
 [dev-packages]
 

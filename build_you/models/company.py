@@ -19,3 +19,4 @@ class Company(BaseModel, Base):
     settings = Column(JSON, default={}, nullable=True)
     status = Column(Enum(Status), default=Status.ACTIVE)
 
+    owner = relationship('User', back_populates='companies')
