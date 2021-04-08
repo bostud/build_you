@@ -10,6 +10,7 @@ sqlalchemy = "*"
 pytz = "*"
 sqlalchemy-utils = "*"
 alembic = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 

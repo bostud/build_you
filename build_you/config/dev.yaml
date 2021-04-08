@@ -1,0 +1,12 @@
+db:
+  debug: True
+  dialect: postgres
+  user: buildu
+  password: 12344321
+  host: localhost
+  name: buildu
+  autocommit: True
+  autoflush: False
+  port: 5432
+app:
+  debug: True

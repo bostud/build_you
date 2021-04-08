@@ -21,6 +21,7 @@ class User(BaseModel, Base):
     settings = Column(JSON, default={})
     status = Column(Enum(Status), default=Status.ACTIVE)
     password = Column(String(length=255), index=True)
+    salt = Column(String(length=255))
     api_token = Column(String(length=256), default=None, nullable=True)
 
     companies = relationship('Company', back_populates='owner')
