@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from datetime import datetime
 
 
 class AuthBase(BaseModel):
@@ -7,8 +8,13 @@ class AuthBase(BaseModel):
 
 
 class AuthLogin(AuthBase):
-    remember_me: bool
+    remember_me: bool = False
 
 
 class AuthSuccess(BaseModel):
-    cookie_token: str
+    api_token: str
+    expire: datetime
+
+
+class AuthLogout(BaseModel):
+    api_token: str

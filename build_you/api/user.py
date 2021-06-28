@@ -1,23 +1,21 @@
 from typing import List
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from build_you.schemas import user as user_schemas
 from build_you.database import get_db
 from build_you.bl import user as user_bl
+from build_you.middleware.auth import AuthMiddleware
 
-router = APIRouter(
-    prefix='/user',
-    tags=['user'],
-    responses={418: {'description': 'Test'}}
-)
+app = FastAPI()
+app.add_middleware(AuthMiddleware)
 
 
-@router.get('/', response_model=List[user_schemas.User])
+@app.get('/', response_model=List[user_schemas.User])
 async def read_users(db: Session = Depends(get_db)):
     return user_bl.get_users(db)
 
 
-@router.post('/', response_model=user_schemas.User)
+@app.post('/', response_model=user_schemas.User)
 async def add_user(
     user: user_schemas.UserCreate,
     db: Session = Depends(get_db),

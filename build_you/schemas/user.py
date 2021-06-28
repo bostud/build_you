@@ -1,5 +1,6 @@
 from typing import Optional
 
+from datetime import datetime
 from pydantic import BaseModel, validator
 
 
@@ -12,7 +13,7 @@ class UserBase(BaseModel):
 
     @validator('email')
     def validate_email(cls, v):
-        pass
+        return v
 
 
 class UserCreate(UserBase):
@@ -22,6 +23,7 @@ class UserCreate(UserBase):
 class User(UserBase):
     id: int
     api_token: Optional[str]
+    expire_datetime: Optional[datetime]
 
     class Config:
         orm_mode = True

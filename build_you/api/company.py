@@ -1,13 +1,20 @@
-from fastapi import APIRouter
+from fastapi import FastAPI
+from build_you.middleware.auth import AuthMiddleware
 
 
-router = APIRouter(
-    prefix='/company',
-    tags=['company'],
-    responses={418: {'description': 'Test'}}
-)
+app = FastAPI()
+app.add_middleware(AuthMiddleware)
 
 
-@router.get('/')
-async def company():
+@app.get('/')
+async def company(
+    data: None,
+):
+    return {'status': 200}
+
+
+@app.post('/')
+async def create_company(
+    data: None,
+):
     return {'status': 200}

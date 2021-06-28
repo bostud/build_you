@@ -1,5 +1,5 @@
 import enum
-from sqlalchemy import Column, String, JSON, Enum
+from sqlalchemy import Column, String, JSON, Enum, DateTime
 from sqlalchemy.orm import relationship
 
 from build_you.models.base import BaseModel
@@ -23,6 +23,7 @@ class User(BaseModel, Base):
     password = Column(String(length=255), index=True)
     salt = Column(String(length=255))
     api_token = Column(String(length=256), default=None, nullable=True)
-
+    expire_datetime = Column(DateTime, default=None, nullable=True)
+    roles = Column(JSON, default={})
     companies = relationship('Company', back_populates='owner')
 

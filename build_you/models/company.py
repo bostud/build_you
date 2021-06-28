@@ -1,5 +1,5 @@
 import enum
-from sqlalchemy import Column, ForeignKey, String, JSON, Integer, Enum
+from sqlalchemy import Column, ForeignKey, String, JSON, Integer, Enum, Text
 from sqlalchemy.orm import relationship
 
 from build_you.models.base import BaseModel
